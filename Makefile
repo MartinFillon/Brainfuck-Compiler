@@ -13,7 +13,7 @@ OBJ			=	$(SRC:.c=.o)
 
 RM			=	rm -f
 
-NAME		=	compiler
+NAME		=	bf
 
 all: $(NAME)
 

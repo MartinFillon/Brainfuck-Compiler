@@ -14,5 +14,6 @@ int compile(char *code);
 int check_while(char *code, int *i);
 int execute_while(char *code, int *i, int start);
 int my_putstr(char const *str);
+int move_pointer(char command);
 
 #endif /* !BF_COMPILER_H_ */

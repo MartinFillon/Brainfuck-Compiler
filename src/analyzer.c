@@ -22,10 +22,7 @@ int compile(char *code)
 int execute_bf(char *code, int *i)
 {
     char command = code[*i];
-    if (command == '<')
-        POINTER -= 1;
-    if (command == '>')
-        POINTER += 1;
+    
     if (command == '+')
         MEMORY[POINTER].value += 1;
     if (command == '-')
@@ -33,6 +30,9 @@ int execute_bf(char *code, int *i)
     if (command == '.') {
         char c = MEMORY[POINTER].value;
         write(1, &c, 1);
+    }
+    if (command == ',') {
+        read(0, &MEMORY[POINTER].value, 1);
     }
     check_while(code, &*i);
     return 0;
@@ -58,6 +58,25 @@ int execute_while(char *code, int *i, int start)
     if (MEMORY[POINTER].value != 0) {
         *i = start;
         execute_bf(code, &*i);
+    }
+    return 0;
+}
+
+int move_pointer(char command)
+{
+    if (command == '<') {
+        if (POINTER == POINTER_MIN) {
+            POINTER = POINTER_MAX;
+        } else {
+            POINTER -= 1;
+        }
+    }
+    if (command == '>') {
+        if (POINTER == POINTER_MAX) {
+            POINTER = POINTER_MIN;
+        } else {
+            POINTER += 1;
+        }
     }
     return 0;
 }
