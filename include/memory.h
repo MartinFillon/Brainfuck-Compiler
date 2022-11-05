@@ -21,6 +21,8 @@ static memory_t MEMORY[100] = {
     {0},{0},{0},{0},{0},{0},{0},{0},{0},{0},{0},{0},{0},{0},{0},{0},{0},{0},{0},{0}
 };
 
+static const int MEMORY_MAX = 255;
+static const int MEMORY_MIN = 0;
 static const int POINTER_MAX = 99;
 static const int POINTER_MIN = 0;
 static int POINTER = POINTER_MIN;
